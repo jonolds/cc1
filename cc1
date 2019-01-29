@@ -1,0 +1,6 @@
+#!/bin/bash
+cp src/WordCount.java .
+javac WordCount.java -Xlint:deprecation
+jar -cvf WordCount.jar ./WordCount*.class
+hadoop jar WordCount.jar WordCount input output
+#cat ./output/part-r-00000
