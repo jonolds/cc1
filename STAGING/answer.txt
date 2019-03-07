@@ -1,0 +1,6 @@
+
+
+To count the number of times map was invoked, I added an additional record during the map stage with the key set to the text '"****" + filename'. During my reducer I saved each record starting with "****" to a seperate output. The rest of the records were processed normally during each stage.
+
+map was invoked 109 times for file0 and 149 times for file1.
+
