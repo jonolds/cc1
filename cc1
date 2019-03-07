@@ -3,7 +3,7 @@ tarname="pa1_olds"
 mainclass="WordCount"
 
 # DELETE TAR / CLEAR STAGING
-rm $tarname
+rm $tarname.tar
 rm -r STAGING/*
 
 # COPY EVERYTHING TO STAGING
