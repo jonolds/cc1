@@ -1,6 +1,21 @@
 #!/bin/bash
-cp src/WordCount.java .
-javac WordCount.java -Xlint:deprecation
-jar -cvf WordCount.jar ./WordCount*.class
-hadoop jar WordCount.jar WordCount input output
-#cat ./output/part-r-00000
+tarname="pa1_olds"
+mainclass="WordCount"
+
+# DELETE TAR / CLEAR STAGING
+rm $tarname
+rm -r STAGING/*
+
+# COPY EVERYTHING TO STAGING
+cp src/main/java/*.java answer.txt -r input STAGING
+cd STAGING
+
+# TEST - compile / put in jar / delete .class / run
+javac *.java -Xlint:deprecation -d .
+jar -cvf TestJar.jar *.class
+hadoop jar TestJar.jar $mainclass input output
+# cat ./output/part-r-00000
+
+# CREATE TAR
+tar -cvf ../$tarname.tar *.java answer.txt input output
+cd ..
