@@ -1,4 +1,7 @@
 #!/bin/bash
+tarname="pa1_olds.tar"
+
+rm $tarname
 cp src/WordCount.java .
 javac WordCount.java -Xlint:deprecation
 jar -cvf WordCount.jar ./WordCount*.class
